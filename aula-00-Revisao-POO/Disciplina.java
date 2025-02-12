@@ -3,21 +3,23 @@ import java.util.List;
 
 public class Disciplina {
     private String nomeDisciplina;
+    private int cargaHoraria;
     private List<Aluno> alunos;
     private List<Professor> professores;
 
 
     public Disciplina(){
-        this("", new ArrayList<Aluno>(), new ArrayList<Professor>());
+        this("", 0,new ArrayList<Aluno>(), new ArrayList<Professor>());
         
     }
-    public Disciplina(String nomeDisciplina){
-        this(nomeDisciplina, new ArrayList<Aluno>(), new ArrayList<Professor>());
+    public Disciplina(String nomeDisciplina, int cargaHoraria){
+        this(nomeDisciplina, cargaHoraria,new ArrayList<Aluno>(), new ArrayList<Professor>());
     }
-    public Disciplina(String nomeDisciplina, List<Aluno> alunos, List<Professor> professores){
+    public Disciplina(String nomeDisciplina, int cargaHoraria, List<Aluno> alunos, List<Professor> professores){
         this.nomeDisciplina = nomeDisciplina;
         this.alunos = alunos;
         this.professores = professores;
+        this.cargaHoraria = cargaHoraria;
     }
     // Getter e setter nomeDisciplina
     public String getNomeDisciplina(){
@@ -25,6 +27,13 @@ public class Disciplina {
     }
     public void setNomeDisciplina(String nomeDisciplina){
         this.nomeDisciplina = nomeDisciplina;
+    }
+    //Getter e setter 
+    public int getCargaHoraria(){
+        return this.cargaHoraria;
+    }
+    public void setCargaHoraria(int cargaHoraria){
+        this.cargaHoraria = cargaHoraria;
     }
     // Getter e setter ListAlunos
     public List<Aluno> getAlunos(){
@@ -44,6 +53,7 @@ public class Disciplina {
     public void addAluno(Aluno aluno){
         this.alunos.add(aluno);
     }
+    //Add Professor
     public void addProfessor(Professor professor){
         this.professores.add(professor);
     }
@@ -51,8 +61,9 @@ public class Disciplina {
     @Override
     public String toString(){
         return "Disciplina{" + getNomeDisciplina() +
-        ", alunos: " + getAlunos() +
-        ", professores: " + getProfessores() +
+        ", Carga Horaria: " + getCargaHoraria() +
+        ",\n*** Alunos *** : " + getAlunos() +
+        ",\n*** Professores ***: " + getProfessores() +
         "}";
     }
     
