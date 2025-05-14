@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Pessoa</title>
+</head>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <main class="main-content">
+
+        <h1>Detalhes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${pessoa.id}"></td>
+                    <td th:text="${pessoa.nome}"></td>
+                    <td th:text="${pessoa.idade}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <form th:action="@{/pessoas/{id}/excluir(id=${pessoa.id})}" method="post">
+            <button type="submit" class="botao">Excluir</button>
+        </form>
+    </main>
+</body>
+
+</html>
